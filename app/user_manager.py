@@ -1,3 +1,3 @@
 #ncncnc
 #gnmgnfm
-print("hello")
+print("hello world")
