@@ -17,11 +17,14 @@ jobs:
                   python-version: '3.11'
             - name: installer les dependances
               run: pip install -r requirements.txt
+            - name: lancer les tests
+              run: pytest tests/ -v --cov=app 
+    lint:
+        runs-on: ubuntu-latest
+        steps:
             - name: lancer flake8
               run: | 
                 flake8 app --count --select=E9,F63,F7,F82,F841 --show-source --statistics
                 flake8 app --count --max-complexity=10 --max-line-length=127 --statistics
                 flake8 tests --count --max-line-length=127 --statistics
-            - name: lancer les tests
-              run: pytest -v --cov=app 
-       
+
